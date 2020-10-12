@@ -20,13 +20,13 @@
 	 padding: 0 4rem;
 }
  .container-left {
-	float: left;
-	overflow: auto;
+	 float: left;
+	 overflow: auto;
 }
  .container-right{
-	float: right;
-	overflow: auto;
-	padding: rem0 4;
+	 float: right;
+	 overflow: auto;
+	 padding: rem0 4;
 	
 }
  .container-dark {
@@ -136,7 +136,8 @@
 	 cursor: pointer;
 	 font: inherit;
 	 border: none;
-	 padding: 2rem 2rem;
+	 padding: 1rem 1rem;
+	 margin: 1rem 1rem;
 	 background-color: #635f54;
 	 color: #dad4bb;
 	 box-sizing: content-box;
@@ -144,6 +145,8 @@
 	 border: 1px solid transparent;
 	 border-left: none;
 	 border-right: none;
+	 max-width: 800px;
+	 max-height: 200px;
 }
  button.bookselector::before {
 	 content: "";
