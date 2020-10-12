@@ -20,12 +20,14 @@
 	 padding: 0 4rem;
 }
  .container-left {
-	align-self: left;
-	padding: 0 4rem;
+	float: left;
+	overflow: auto;
 }
  .container-right{
-	align-self: right;
-	padding: 0 4rem;
+	float: right;
+	overflow: auto;
+	padding: rem0 4;
+	
 }
  .container-dark {
 	 background-color: #635f54;
@@ -44,6 +46,7 @@
 	 margin-bottom: 0rem;
 }
  footer {
+	 clear: both; 
 	 padding: 0rem 0;
 	 background-color: #4b4e42;
 	 color: #dcd9cb;
