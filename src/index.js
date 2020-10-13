@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { LandingPage } from './LandingPage';
+import { LandingPage } from './pages/LandingPage';
 
 ReactDOM.render(
   <React.StrictMode>
