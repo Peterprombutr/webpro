@@ -1,0 +1,48 @@
+.header {
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.partition {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.partition__left {
+    background-color: #4E4B42;
+    max-width: 300px;
+    padding: 20px;
+    filter: drop-shadow(-5px 5px 1px rgba(0, 0, 0, 0.25));
+}
+
+.introduction-text__top {
+    color: #CDC8B0;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: -0.5em;
+}
+
+.introduction-text__middle {
+    color: #FFF9E0;
+    background-color: #B4AF9A;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 16px;
+    padding: 8px;
+    margin: -0.4em;
+}
+
+.partition__left-inner-box {
+    background-color: #DAD4BB;
+    color: #4e4b42;
+    font-family: Roboto;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.partition__right {
+    border: 1px solid black;
+}
