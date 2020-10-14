@@ -2,10 +2,6 @@ p, h3, h5, summary {
     font-family: Roboto;
 }
 
-a {
-	text-decoration: none;
-}
-
 body {
     background-color: #CDC8B0;
 	background-size: 4px 4px;
@@ -39,10 +35,36 @@ button {
     margin: 0em 7px -6px 30px;
 }
 
+.hotlink {
+	display: flex;
+	font-family: Roboto;
+	color: #4E4B42;
+	font-size: 18px;
+	text-decoration: none;
+	margin-top: 10px;
+	margin-left: 25px;
+}
+
+.hotlink__prior {
+	font-weight: bold;
+    margin: 0.5em 0.1em;
+}
+
+.hotlink__divider {
+	font-weight: normal;
+	margin: 0.5em 0.1em;
+}
+
+.hotlink__current{
+	font-weight: normal;
+	margin: 0.5em 0.1em;
+}
+
 .partition {
     display: flex;
     justify-content: space-around;
     margin-top: 10px;
+	text-decoration: none;
 }
 
 .partition__sypnosis {
