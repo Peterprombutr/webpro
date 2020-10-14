@@ -1,6 +1,6 @@
 import React from "react";
-import Logo from "./logo.svg";
-import "./LandingPage.css";
+import Logo from "../logo.svg";
+import "../LandingPage.css";
 
 export class LandingPage extends React.Component {
 
