@@ -1,0 +1,110 @@
+p, h3, h5, summary {
+    font-family: Roboto;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+    background-color: #CDC8B0;
+	background-size: 4px 4px;
+    background-image: linear-gradient(90deg, transparent, transparent 3px, rgba(0, 0, 0, .07) 4px), linear-gradient(transparent, transparent 3px, rgba(0, 0, 0, .07) 4px);
+    box-shadow: inset 0 0 150px rgba(77, 73, 62, .4), inset 0 0 150px rgba(77, 73, 62, .3);
+    min-height: 100vh;
+    margin: 0px;
+}
+
+button {
+    margin: 0px 7px;
+    padding: 5px 8px;
+    background-color: #8d8977;
+    color: #e6e6e6;
+    border: none;
+    font-size: 14px;
+}
+
+.header {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1px solid black;
+    padding: 6px;
+}
+
+.header__title {
+    background-color: #4E4B42;
+    color: #CDC8B0;
+    font-size: 25px;
+    padding: 7px;
+    margin: 0em 7px -6px 30px;
+}
+
+.partition {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.partition__sypnosis {
+    background-color: #4E4B42;
+    max-height: 300px;
+    max-width: 800px;
+    padding: 5px 10px;
+	margin-top: 50px;
+    filter: drop-shadow(-5px 5px 1px rgba(0, 0, 0, 0.25));
+}
+
+details {
+	max-height: 300px;
+	max-width: 800px;
+	padding: 5px 10px;
+	box-sizing: border-box;
+	display: flex;
+}
+
+details > summary {
+	max-height: 300px;
+	max-width: 800px;
+	width: 800px;
+	padding: 5px 10px;
+	box-sizing: border-box;
+	display: flex;
+}
+
+.sypnosis__title {
+    color: #CDC8B0;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.sypnosis__text {
+    color: #CDC8B0;
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+.chapter-box {
+    display: flex;
+	max-height: 30px;
+	max-width: 800px;
+    background-color: #B4AF9A;
+    color: #FFF9E0;
+	font-size: 18px;
+    width: 800px;
+    margin-top: 15px;
+    padding: 5px 5px;
+    filter: drop-shadow(-5px 5px 1px rgba(0, 0, 0, 0.25));
+}
+
+.chapter-box__title {
+	font-weight: bold;
+    margin: 0.5em 0.5em;
+	float: left;
+}
+
+.chapter-box__pagecount {
+	font-weight: normal;
+	margin: 0.5em 0.5em;
+}
