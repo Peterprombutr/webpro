@@ -40,18 +40,20 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 35%;
-    max-width: 20%;
+    margin-left: 44%;
+    max-width: 17%;
 }
 
 .login-container__title {
     font-size: 50px;
     padding: 20px;
+    margin-bottom: 30px;
     background-color: #4E4B42;
     color: #CDC8B0;
 }
 
 .input {
     background-color:   #B4AF9A;
-    margin: 10px;
+    color: #4E4B42;
+    margin: 15px 10px;
 }
