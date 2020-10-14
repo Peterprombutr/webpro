@@ -1,0 +1,100 @@
+p, h3, h5, summary {
+    font-family: Roboto;
+}
+
+body {
+    background-color: #CDC8B0;
+	background-size: 4px 4px;
+    background-image: linear-gradient(90deg, transparent, transparent 3px, rgba(0, 0, 0, .07) 4px), linear-gradient(transparent, transparent 3px, rgba(0, 0, 0, .07) 4px);
+    box-shadow: inset 0 0 150px rgba(77, 73, 62, .4), inset 0 0 150px rgba(77, 73, 62, .3);
+    min-height: 100vh;
+    margin: 0px;
+}
+
+button {
+    margin: 0px 7px;
+    padding: 5px 8px;
+    background-color: #8d8977;
+    color: #e6e6e6;
+    border: none;
+    font-size: 14px;
+}
+
+.header {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1px solid black;
+    padding: 6px;
+}
+
+.header__title {
+    background-color: #4E4B42;
+    color: #CDC8B0;
+    font-size: 25px;
+    padding: 7px;
+    margin: 0em 7px -6px 30px;
+}
+
+.topmenu {
+	display: flex;
+	justify-content: space-between;
+}
+
+.hotlink {
+	display: flex;
+	font-family: Roboto;
+	color: #4E4B42;
+	font-size: 18px;
+	margin-top: 10px;
+	margin-left: 25px;
+}
+
+.hotlink__prior {
+	font-weight: bold;
+    margin: 0.5em 0.1em;
+	text-decoration: none;
+}
+
+.hotlink__divider {
+	font-weight: normal;
+	margin: 0.5em 0.1em;
+}
+
+.hotlink__current{
+	font-weight: normal;
+	margin: 0.5em 0.1em;
+}
+
+.partition {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+	text-decoration: none;
+}
+
+.partition__typingarea{
+    max-height: 300px;
+    max-width: 800px;
+	font-size: 18px;
+    padding: 5px 10px;
+	margin-top: 50px;
+}
+
+.typingarea__title {
+    color: #000000;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.typingarea__text {
+    color: #4E4B42;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+.footer {
+	display: flex;
+	justify-content: space-around;
+	color: #000000;
+	font-size: 40px;
+}
