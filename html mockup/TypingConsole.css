@@ -87,9 +87,25 @@ button {
 }
 
 .typingarea__text {
-    color: #4E4B42;
+    color: #4e4b425d;
     font-weight: normal;
     margin-top: 5px;
+}
+
+.typingarea__actual {
+    font-family: roboto;
+    min-height: 300px;
+    min-width: 800px;
+    margin-top: 3px;
+    margin-left: -2px;
+    font-size: 18px;
+    position: absolute;
+    background: transparent;
+    border: none;
+}
+
+.typingarea__actual:focus {
+    outline: none;
 }
 
 .footer {
