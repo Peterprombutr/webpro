@@ -2,6 +2,30 @@
 <html>
 <head>
     <link rel="stylesheet" href="TypingConsole.css">
+    <script>
+        var previous = "";
+        var wordsTypedInSec = 0;
+        var time = 1;
+
+        function getWordsTyped() {
+            var currentText = document.getElementById("typingarea__id");
+            if (previous.length < currentText.value.length) {
+                wordsTypedInSec = currentText.value.length - previous.length;
+                previous = currentText.value;
+            }
+            else{
+                wordsTypedInSec = 0;
+            }
+            console.log(wordsTypedInSec, currentText.value, previous, "CPS=", wordsTypedInSec*60);
+            var cps = document.getElementById("CPS");
+            cps.innerHTML = "Current Page: " + wordsTypedInSec*60 + "  CPS&#9-- ACC&#9&#9"
+
+        }
+
+        setInterval(function() {
+            getWordsTyped();
+        }, 1000);
+    </script>
 </head>
 <body>
     <div class="header">
@@ -13,7 +37,7 @@
             <button>Sign Up</button>
         </a>
     </div>
-	
+
 	<div class="topmenu">
 		<div class="hotlink">
 			<a href="LandingPage.html" class="hotlink__prior">Books </a>
@@ -24,7 +48,7 @@
 		</div>
 		
 		<div class="hotlink">
-			<p class="hotlink__current">Current Page:&#9-- WPM&#9-- ACC&#9&#9</p>
+			<p class="hotlink__current" id="CPS">Current Page:&#9-- CPS&#9-- ACC&#9&#9</p>
 			<a href="TypingConsole_Read.html">
 				<img src="icon_setting.svg" alt="setting" width="32" height="32">
 			</a>
@@ -33,7 +57,7 @@
 		
 	<div class="partition">
 		<div class="partition__typingarea">
-            <textarea class="typingarea__actual"></textarea>
+            <textarea class="typingarea__actual" id="typingarea__id"></textarea>
 			<p class="typingarea__text">
 				Next to a great forest there lived a poor woodcutter with his wife and his two children. The boy's name was Hansel and the girl's name was Gretel. He had but little to eat, and once, when a great famine came to the land, he could no longer provide even their daily bread.
 				
