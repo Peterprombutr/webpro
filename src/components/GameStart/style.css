@@ -1,0 +1,43 @@
+.header__difficulty {
+    font-size: 28px;
+    font-weight: bolder;
+    text-align: center;
+    color: #4e4b42;
+}
+
+.button.difficulty {
+    padding: 8px;
+    background-color: #8d8977;
+    color: #e6e6e6;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    width: 250px;
+}
+
+.button.game-start {
+    height: 157px;
+    width: 157px;
+    background: url("../../assets/startButton.svg");
+    background-size: 157px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    font-size: 28px;
+    font-weight: bold;
+    font-style: italic;
+    color: #4e4b42;
+    margin-left: -70px;
+    margin-top: -8px;
+}
+
+.difficulty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 23px;
+}
+
+.flex {
+    display: flex;
+}
