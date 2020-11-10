@@ -1,0 +1,27 @@
+.leaderboard-container {
+    margin-bottom: 35px;
+}
+
+.leaderboard-header {
+    font-size: 19px;
+    font-weight: bold;
+    color: #4e4b42;
+    margin-left: 15px;
+    margin-bottom: 7px;
+}
+
+.leaderboard-items-holder {
+    background: url("../../assets/leaderboardBg.svg");
+    background-size: 450px;
+    background-repeat: no-repeat;
+    padding: 1px 10px 10px 40px;
+}
+
+.leaderboard__difficulty button {
+    background-color: #B4AF9A;
+    color: #958E7B;
+    border: none;
+    margin-top: -1px;
+    padding: 7px;
+    min-width: 144px;
+}
