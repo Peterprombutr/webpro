@@ -1,5 +1,6 @@
-import React from "react";
-import Logo from "../logo.svg";
+import * as React from "react";
+import { GameStart } from "../components/GameStart"
+import { Leaderboard } from "../components/Leaderboard";
 import "../LandingPage.css";
 
 export class LandingPage extends React.Component {
@@ -9,19 +10,28 @@ export class LandingPage extends React.Component {
             <div>
                 <div className="header">
                     <p className="header__title">TypeIt.io</p>
-                    <button>Login</button>
-                    <button>Sign Up</button>
+                    <button className="button header">Login</button>
+                    <button className="button header">Sign Up</button>
                 </div>
                 <div className="partition">
                     <div className="partition__left">
-                        <h3 className="introduction-text__top">Improve your typing for free online by practicing on classic literature. Choose a book to get started!</h3>
-                        <div className="partition__left-inner-box">
-                            <p className="introduction-text__middle">Typing practice that keeps you engaged and entertained</p>
-                            <p>Practice your typing interactively and improve your speed and accuracy</p>
-                            <p>Track and compare your progress by logging in</p>
-                        </div>
+                        <GameStart />
                     </div>
                     <div className="partition__right">
+                        <Leaderboard />
+                        <div className="introduction-box">
+                            <h3 className="introduction-text__top">
+                                Improve your typing by typing (attacking) through a dungeon of enemies, and defend yourself by quickly reacting to their words!
+                            </h3>
+                            <div className="introduction-inner-box">
+                                <p className="introduction-text__middle">
+                                    Typing game that provides engaging visuals and progression to keep you entertained
+                                </p>
+                                <p>Practice your typing with engaging gameplay</p>
+                                <p>Multiple difficulties and enemies!</p>
+                                <p>Game-based progression system to keep track of your progress</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

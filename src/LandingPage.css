@@ -10,7 +10,7 @@ body {
     min-height: 100vh;
 }
 
-button {
+.button.header {
     margin: 0px 7px;
     padding: 5px 8px;
     background-color: #8d8977;
@@ -37,14 +37,17 @@ button {
 .partition {
     display: flex;
     justify-content: space-around;
-    margin-top: 50px;
+    margin-left: auto;
+    margin-right: 5em;
+    width: 80%;
 }
 
-.partition__left {
+.introduction-box {
     background-color: #4E4B42;
     max-height: 300px;
     max-width: 300px;
     padding: 5px 10px;
+    margin-left: auto;
     filter: drop-shadow(-5px 5px 1px rgba(0, 0, 0, 0.25));
 }
 
@@ -63,46 +66,15 @@ button {
     margin: -0.4em;
 }
 
-.partition__left-inner-box {
+.introduction-inner-box {
     background-color: #DAD4BB;
     color: #4e4b42;
     font-size: 14px;
     padding: 10px;
 }
 
-.partition__right {
-    text-decoration: none;
-    margin-top: -20px;
-}
-
-.book-box {
+.partition__left {
     display: flex;
-    flex-direction: row;
-    background-color: #4e4b42;
-    color: #DAD4BB;
-    width: 600px;
-    height: 100px;
-    margin-bottom: 15px;
-}
-
-.book-box__title {
-    font-size: 18px;
-    margin: 0.67em 0em;
-}
-
-.book-box__author {
-    font-size: 12px;
-    margin: -1.2em 0em 0em 0em;
-}
-
-.book-box__desc {
-    font-size: 10px;
-    max-width: 300px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.partition__right a {
     text-decoration: none;
+    align-items: center;
 }
