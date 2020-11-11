@@ -23,9 +23,12 @@ export class GameStart extends React.Component {
                 <p className="header__difficulty">Select Difficulty</p>
                 <div className="flex">
                     <div className="difficulty">
-                        <button className="button difficulty" onClick={() => this.change_difficulty(1)}>Easy</button>
-                        <button className="button difficulty" onClick={() => this.change_difficulty(2)}>Intermediate</button>
-                        <button className="button difficulty" onClick={() => this.change_difficulty(3)}>Advanced</button>
+                        <input type="radio" id="easy" name="difficulty" value="1" />
+                        <label for="easy">Easy</label>
+                        <input type="radio" id="medium" name="difficulty" value="2" />
+                        <label for="medium">Intermediate</label>
+                        <input type="radio" id="hard" name="difficulty" value="3" />
+                        <label for="hard">Advanced</label>
                     </div>
                     <div>
                         <button className="button game-start" onClick={() => this.props.start(this.state.selected)}>START</button>
