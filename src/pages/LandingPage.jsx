@@ -4,6 +4,20 @@ import { Leaderboard } from "../components/Leaderboard";
 import "../LandingPage.css";
 
 export class LandingPage extends React.Component {
+    constructor(props) {
+    super(props);
+
+    this.state = {
+        difficulty: 0
+    };
+}
+
+    start_game = (val) => {
+        this.setState({
+            difficulty: val
+        });
+        console.log("starting a game session with the difficulty of " + val);
+    }
 
     render() {
         return(
@@ -15,7 +29,7 @@ export class LandingPage extends React.Component {
                 </div>
                 <div className="partition">
                     <div className="partition__left">
-                        <GameStart />
+                        <GameStart start={this.start_game}/>
                     </div>
                     <div className="partition__right">
                         <Leaderboard />
