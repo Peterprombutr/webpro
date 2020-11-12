@@ -17,11 +17,37 @@
     padding: 1px 10px 10px 40px;
 }
 
-.leaderboard__difficulty button {
+.leaderboard__difficulty {
+    display: flex;
+    width: 390px;
+}
+
+
+.leaderboard__difficulty input[type="radio"]{
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.leaderboard__difficulty label{
+    font-family: 'roboto';
     background-color: #B4AF9A;
     color: #958E7B;
     border: none;
-    margin-top: -1px;
-    padding: 7px;
-    min-width: 144px;
+    text-align: center;
+    padding: 5px;
+    width: 100%;
+}
+
+.leaderboard__difficulty input[type="radio"]:checked + label{
+    background-color: #DAD4BB;
+    color: #070707;
+    font-weight: 700;
+    animation-name: leaderboard__difficulty-button;
+    animation-duration: 0.1s;
+}
+
+@keyframes leaderboard__difficulty-button {
+    0%     {background-color: #8d8977;}
+    100%   {background-color: #DAD4BB;}
 }

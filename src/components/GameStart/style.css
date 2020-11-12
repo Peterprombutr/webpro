@@ -46,7 +46,7 @@
 .difficulty label{
     padding: 8px;
     background-color: #8d8977;
-    color: #e6e6e6;
+    color: #bbb6a0;
     border: none;
     font-size: 14px;
     font-family: 'roboto';
@@ -57,6 +57,7 @@
 
 .difficulty input[type="radio"]:checked + label{
     background-color: #635F54;
+    color: #e6e6e6;
     animation-name: difficulty-button;
     animation-duration: 0.7s;
     margin-left: -10px;
