@@ -1,13 +1,11 @@
 import * as React from "react";
 import "./style.css";
 
-export class LeaderboardItem extends React.Component {
+export function LeaderboardItem(props) {
 
-    render() {
-        return(
-            <div className="leaderboard-item">
-                <p>AmbiguousPamesan&emsp;&emsp;WPM:212&emsp;&emsp;Floor cleared:10</p>
-            </div>
-        );
-    }
+    return(
+        <div className="leaderboard-item">
+            <p>{props.userName}&emsp;&emsp;WPM:{props.wpm}&emsp;&emsp;Floor cleared:{props.floorCleared}</p>
+        </div>
+    );
 }
