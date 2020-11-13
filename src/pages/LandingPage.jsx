@@ -1,7 +1,7 @@
 import * as React from "react";
 import { GameStart } from "../components/GameStart"
 import { Leaderboard } from "../components/Leaderboard";
-import "../LandingPage.css";
+import "../styles/LandingPage.css";
 
 export class LandingPage extends React.Component {
     constructor(props) {

@@ -1,5 +1,5 @@
 import React from "react";
-import "../LoginPage.css";
+import "../styles/LoginPage.css";
 
 export class LoginPage extends React.Component {
 
