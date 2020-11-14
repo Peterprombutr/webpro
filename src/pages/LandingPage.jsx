@@ -22,7 +22,7 @@ export class LandingPage extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="landing-page">
                 <Header isLoggedIn={true}/>
                 <div className="partition">
                     <div className="partition__left">

@@ -30,7 +30,7 @@ export class GameStart extends React.Component {
                         <input type="radio" id="hard" name="difficulty" value="3" />
                         <label htmlFor="hard">Advanced</label>
                     </div>
-                    <div>
+                    <div style={{zIndex: 0}}>
                         <button className="button game-start" onClick={() => this.props.start(this.state.selected)}>START</button>
                     </div>
                 </div>

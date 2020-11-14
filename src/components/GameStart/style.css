@@ -61,7 +61,7 @@
     animation-name: difficulty-button;
     animation-duration: 0.7s;
     margin-left: -10px;
-    z-index: -1;
+    z-index: auto;
     filter: drop-shadow(10px 8px 4px rgba(0, 0, 0, 0.35));
 }
 
