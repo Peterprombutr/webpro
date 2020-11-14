@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { LandingPage } from './pages/LandingPage';
+import { TypingPage } from './pages/TypingPage';
 
 ReactDOM.render(
   <React.StrictMode>
