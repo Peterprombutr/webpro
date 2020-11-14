@@ -24,8 +24,8 @@ export class Leaderboard extends React.Component {
                 <p className="leaderboard-header">Leaderboard</p>
                 <div className="leaderboard-items-holder">
                     <LeaderboardItem userName={"AmbiguousLizard"} wpm={210} floorCleared={30}/>
-                    <LeaderboardItem userName={"Klee Klee"} wpm={188} floorCleared={28}/>
-                    <LeaderboardItem userName={"sus pepperoni"} wpm={157} floorCleared={27}/>
+                    <LeaderboardItem userName={"Klee_klee"} wpm={188} floorCleared={28}/>
+                    <LeaderboardItem userName={"Liskarm"} wpm={157} floorCleared={27}/>
                 </div>
                 <div className="leaderboard__difficulty" onChange={this.change_leaderboard__diff}>
                     <input type="radio" id="leaderboard__easy" name="leaderboard__diff" value="1" />

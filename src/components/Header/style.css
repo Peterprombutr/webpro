@@ -16,7 +16,7 @@
 .header__user-info {
     margin: 0px 7px;
     padding: 5px 8px;
-    background-color: #8d8977;
+    background-color: #635F54;
     color: #e6e6e6;
     font-size: 16px;
 }
@@ -28,4 +28,5 @@
     color: #e6e6e6;
     border: none;
     font-size: 16px;
+    font-family: 'roboto';
 }
