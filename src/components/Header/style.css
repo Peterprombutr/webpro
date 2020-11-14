@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1px solid black;
+    padding: 6px;
+}
+
+.header__title {
+    background-color: #4E4B42;
+    color: #CDC8B0;
+    font-size: 25px;
+    padding: 7px;
+    margin: 0em 7px -6px 30px;
+}
+
+.header__user-info {
+    margin: 0px 7px;
+    padding: 5px 8px;
+    background-color: #8d8977;
+    color: #e6e6e6;
+    font-size: 16px;
+}
+
+.button.header {
+    margin: 0px 7px;
+    padding: 5px 8px;
+    background-color: #8d8977;
+    color: #e6e6e6;
+    border: none;
+    font-size: 16px;
+}
