@@ -1,5 +1,6 @@
 import * as React from "react";
 import { GameStart } from "../components/GameStart"
+import { Header } from "../components/Header";
 import { Leaderboard } from "../components/Leaderboard";
 import "../styles/LandingPage.css";
 
@@ -22,11 +23,7 @@ export class LandingPage extends React.Component {
     render() {
         return(
             <div>
-                <div className="header">
-                    <p className="header__title">TypeIt.io</p>
-                    <button className="button header">Login</button>
-                    <button className="button header">Sign Up</button>
-                </div>
+                <Header isLoggedIn={true}/>
                 <div className="partition">
                     <div className="partition__left">
                         <GameStart start={this.start_game}/>
