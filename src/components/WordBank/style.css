@@ -1,0 +1,18 @@
+.word-bank {
+    display: flex;
+    flex-flow: row wrap;
+    overflow-wrap: break-word;
+    padding: 2% 6%;
+}
+
+.word {
+    margin: 0px 5px;
+    font-size: 30px;
+    color: #DAD4BB;
+}
+
+.word--typed {
+    margin: 0px 5px;
+    font-size: 30px;
+    color: #37B944
+}
