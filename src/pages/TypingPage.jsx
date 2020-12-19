@@ -1,5 +1,7 @@
 import * as React from "react";
 import { Header } from "../components/Header";
+import { TypingGameDisplay } from "../components/TypingGameDisplay";
+import { TypingUI } from "../components/TypingUI";
 import "../styles/TypingPage.css";
 
 export class TypingPage extends React.Component {
@@ -14,8 +16,14 @@ export class TypingPage extends React.Component {
     render() {
 
         return(
-            <div>
+            <div className="typing-page">
                 <Header />
+                <div>
+                    <TypingGameDisplay />
+                </div>
+                <div>
+                    <TypingUI />
+                </div>
             </div>
         );
     }

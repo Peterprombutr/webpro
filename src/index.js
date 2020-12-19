@@ -7,7 +7,7 @@ import { TypingPage } from './pages/TypingPage';
 
 ReactDOM.render(
   <React.StrictMode>
-    <LandingPage />
+    <TypingPage />
   </React.StrictMode>,
   document.getElementById('root')
 );
