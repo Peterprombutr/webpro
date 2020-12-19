@@ -1,4 +1,5 @@
 import * as React from "react";
+import { WordBank } from "../WordBank";
 import "./style.css";
 
 export class TypingUI extends React.Component {
@@ -13,10 +14,7 @@ export class TypingUI extends React.Component {
     render() {
         return(
             <div className="typing-ui">
-                <p>wordbank</p>
-                <p>wordbank</p>
-                <p>typing zone</p>
-                <p>player info</p>
+                <WordBank />
             </div>
         );
     }
