@@ -1,0 +1,12 @@
+.player-info {
+    padding: 8px;
+    font-size: 25px;
+    color: #DAD4bb;
+    display: flex;
+    align-items: center;
+}
+
+.player-info__health {
+    margin-left: 20px;
+    display: flex;
+}
