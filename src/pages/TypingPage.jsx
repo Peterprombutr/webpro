@@ -18,12 +18,8 @@ export class TypingPage extends React.Component {
         return(
             <div className="typing-page">
                 <Header />
-                <div>
-                    <TypingGameDisplay />
-                </div>
-                <div>
-                    <TypingUI />
-                </div>
+                <TypingGameDisplay />
+                <TypingUI />
             </div>
         );
     }
