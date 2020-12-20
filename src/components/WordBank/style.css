@@ -16,3 +16,11 @@
     font-size: 30px;
     color: #37B944
 }
+
+.word--current {
+    margin: 0px 5px;
+    padding: 0px 5px;
+    font-size: 30px;
+    color: #dad4bb;
+    background-color: #333333;
+}

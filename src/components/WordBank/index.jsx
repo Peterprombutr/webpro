@@ -21,6 +21,8 @@ export class WordBank extends React.Component {
             wordBankHtml.push(<p key={i} className="word">{wordBank[i]}</p>);
         }
 
+        wordBankHtml.push(<p className="word--current">selected</p>)
+
         return wordBankHtml;
     }
 
