@@ -1,0 +1,16 @@
+.typing-area {
+    padding: 5px;
+    font-family: Roboto;
+    text-align: center;
+}
+
+.typing-area__input {
+    padding: 7px;
+    padding-left: 10px;
+    width: 30%;
+    font-family: Roboto;
+    font-size: 30px;
+    color: #4E4b42;
+    background-color: #dad4bb;
+    border: none;
+}
