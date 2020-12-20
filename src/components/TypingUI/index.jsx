@@ -1,4 +1,5 @@
 import * as React from "react";
+import { TypingArea } from "../TypingArea";
 import { WordBank } from "../WordBank";
 import "./style.css";
 
@@ -15,6 +16,7 @@ export class TypingUI extends React.Component {
         return(
             <div className="typing-ui">
                 <WordBank />
+                <TypingArea />
             </div>
         );
     }
