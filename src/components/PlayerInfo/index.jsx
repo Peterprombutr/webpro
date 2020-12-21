@@ -8,7 +8,6 @@ export class PlayerInfo extends React.Component {
 
         this.state = {
             attack_value: 1,
-            wpm: 0,
             dps: 0,
         };
     }
@@ -24,7 +23,7 @@ export class PlayerInfo extends React.Component {
                 </div>
                 <p className="player-info__attack">ATK: {this.state.attack_value}</p>
                 <div className="player-info__wpm">
-                    <p>WPM: {this.state.wpm}</p>
+                    <p>WPM: {this.props.wpm}</p>
                     <p>DPS: {this.state.dps}</p>
                 </div>
             </div>
