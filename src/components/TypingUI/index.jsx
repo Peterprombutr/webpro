@@ -5,6 +5,8 @@ import { WordBank } from "../WordBank";
 import { currentTime } from "../../utils/currentTime";
 import "./style.css";
 
+const damageMult = 0.25;
+
 export class TypingUI extends React.Component {
     constructor(prop) {
         super(prop);
@@ -13,6 +15,8 @@ export class TypingUI extends React.Component {
             start_time: false,
             num_words_typed: 0,
             wpm: 0,
+            dps: 0,
+            atk: 1,
             current_word: -1,
             typed_words: [],
             word_bank: [],
@@ -40,15 +44,18 @@ export class TypingUI extends React.Component {
            // console.log("hit");
             var updated_typed_words = this.state.typed_words.concat(w);
             var duration = (currentTime() - this.state.start_time) / 60000.0;
+            var raw_wpm = ((this.state.num_words_typed + 1) / duration).toFixed(2);
             e.target.value = "";
+            //console.log(this.state.wpm, this.state.atk, damageMult);
 
             this.setState({
                 current_word: this.state.current_word + 1,
                 typed_words: updated_typed_words,
                 num_words_typed: this.state.num_words_typed + 1,
-                wpm: ((this.state.num_words_typed + 1) / duration).toFixed(2)
+                wpm: raw_wpm,
+                dps: ((raw_wpm * this.state.atk * damageMult).toFixed(0)),
             })
-
+            this.props.calculateDPS(this.state.dps);
         }
     }
 
@@ -88,7 +95,7 @@ export class TypingUI extends React.Component {
             <div className="typing-ui">
                 <WordBank wb={wb}/>
                 <TypingArea onChange={(e) => this.type(e)}/>
-                <PlayerInfo wpm={this.state.wpm}/>
+                <PlayerInfo atk={this.state.atk} wpm={this.state.wpm} dps={this.state.dps}/>
             </div>
         );
     }
