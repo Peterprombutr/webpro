@@ -12,8 +12,8 @@ export class HealthBlip extends React.Component {
 
     render() {
         return(
-            <svg width="35" height="50">
-                <rect width="20" height="50" rx="5" className="health-rect"/>
+            <svg width="35" height="40">
+                <rect width="20" height="40" rx="6" className={"health-rect-" + this.props.status}/>
             </svg>
         );
     }

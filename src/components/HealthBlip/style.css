@@ -1,3 +1,7 @@
-.health-rect {
+.health-rect-1 {
     fill: #ec1c00;
+}
+
+.health-rect-0 {
+    fill: #3f0000;
 }
