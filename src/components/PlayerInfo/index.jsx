@@ -7,7 +7,9 @@ export class PlayerInfo extends React.Component {
         super(props);
 
         this.state = {
-            a: 0
+            attack_value: 1,
+            wpm: 0,
+            dps: 0,
         };
     }
 
@@ -16,9 +18,14 @@ export class PlayerInfo extends React.Component {
             <div className="player-info">
                 <p>User12347</p>
                 <div className="player-info__health">
-                    <HealthBlip />
-                    <HealthBlip />
-                    <HealthBlip />
+                    <HealthBlip status="1"/>
+                    <HealthBlip status="1"/>
+                    <HealthBlip status="0"/>
+                </div>
+                <p className="player-info__attack">ATK: {this.state.attack_value}</p>
+                <div className="player-info__wpm">
+                    <p>WPM: {this.state.wpm}</p>
+                    <p>DPS: {this.state.dps}</p>
                 </div>
             </div>
         );
