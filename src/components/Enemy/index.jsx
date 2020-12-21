@@ -33,9 +33,11 @@ export class Enemy extends React.Component {
     }
 
     render() {
+        var health_bar = this.props.current_health > 0 ? "enemy__name" : "enemy__name--nohp"
+
         return(
             <div className="enemy">
-                <p className="enemy__name" style={{width: this.state.health_width}}>{this.props.name}</p>
+                <p className={health_bar} style={{width: this.state.health_width}}>{this.props.name}</p>
                 <p className="enemy__health">{this.props.current_health}/{this.props.max_health}</p>
                 <img className="enemy-img" src={necro} alt="enemy"/>
             </div>

@@ -19,6 +19,19 @@
     white-space: nowrap;
 }
 
+.enemy__name--nohp {
+    position: absolute;
+    text-align: right;
+    background-color: #DAD4BB;
+    color: #000000;
+    z-index: 1;
+    font-size: 20px ;
+    margin: 0 0;
+    padding: 4px 0px;
+    width: calc(100% - 30px);
+    white-space: nowrap;
+}
+
 .enemy__health {
     position: absolute;
     text-align: right;
@@ -26,7 +39,7 @@
     color: #000000;
     z-index: 1;
     font-size: 20px ;
-    margin: 0 0px;
+    margin: 0 0;
     padding: 4px 15px;
     width: calc(100% - 30px);
 }
