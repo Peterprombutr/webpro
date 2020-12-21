@@ -1,6 +1,7 @@
 import * as React from "react";
 import "./style.css";
 import Background from "../../assets/bg1.svg";
+import { Enemy } from "../Enemy";
 
 export class TypingGameDisplay extends React.Component {
     constructor(prop) {
@@ -15,6 +16,7 @@ export class TypingGameDisplay extends React.Component {
         return(
             <div className="typing-game-display">
                 <img className="background-img" src={Background} alt="background"/>
+                <Enemy name="High necromancer"/>
             </div>
         );
     }
