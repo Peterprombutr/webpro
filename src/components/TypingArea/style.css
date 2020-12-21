@@ -14,3 +14,7 @@
     background-color: #dad4bb;
     border: none;
 }
+
+.typing-area__input:focus {
+    outline: none;
+}
