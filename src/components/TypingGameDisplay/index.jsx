@@ -16,7 +16,11 @@ export class TypingGameDisplay extends React.Component {
         return(
             <div className="typing-game-display">
                 <img className="background-img" src={Background} alt="background"/>
-                <Enemy name="High necromancer" current_health="100" max_health="100"/>
+                <Enemy
+                    name="High necromancer"
+                    current_health={this.props.current_health}
+                    max_health={this.props.max_health}
+                    />
             </div>
         );
     }

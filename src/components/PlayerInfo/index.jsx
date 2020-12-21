@@ -5,11 +5,6 @@ import "./style.css";
 export class PlayerInfo extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            attack_value: 1,
-            dps: 0,
-        };
     }
 
     render() {
@@ -19,12 +14,12 @@ export class PlayerInfo extends React.Component {
                 <div className="player-info__health">
                     <HealthBlip status="1"/>
                     <HealthBlip status="1"/>
-                    <HealthBlip status="0"/>
+                    <HealthBlip status="1"/>
                 </div>
-                <p className="player-info__attack">ATK: {this.state.attack_value}</p>
+                <p className="player-info__attack">ATK: {this.props.atk}</p>
                 <div className="player-info__wpm">
                     <p>WPM: {this.props.wpm}</p>
-                    <p>DPS: {this.state.dps}</p>
+                    <p>DPS: {this.props.dps}</p>
                 </div>
             </div>
         );
