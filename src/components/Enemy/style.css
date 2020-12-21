@@ -1,0 +1,27 @@
+.enemy {
+    position: absolute;
+    top: 60px;
+    left: 36.5%;
+    max-width: 29vw;
+    max-height: 50.2vh;
+    background-color: #3a4041;
+}
+
+.enemy__name {
+    position: absolute;
+    background-color: #4E4B42;
+    color: #CDC8B0;
+    z-index: 1;
+    font-size: 20px ;
+    margin: 0 0px;
+    padding: 4px 15px;
+    width: calc(100% - 30px);
+}
+
+.enemy-img {
+    position: relative;
+    object-fit: fill;
+    object-position: 0 0;
+    width: 27vw;
+    height: 50.2vh;
+}
