@@ -11,6 +11,19 @@
     position: absolute;
     background-color: #4E4B42;
     color: #CDC8B0;
+    z-index: 2;
+    font-size: 20px ;
+    margin: 0 0px;
+    padding: 4px 15px;
+    width: calc(100% - 30px);
+    white-space: nowrap;
+}
+
+.enemy__health {
+    position: absolute;
+    text-align: right;
+    background-color: #DAD4BB;
+    color: #000000;
     z-index: 1;
     font-size: 20px ;
     margin: 0 0px;
