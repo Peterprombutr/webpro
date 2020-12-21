@@ -17,7 +17,7 @@ export class TypingPage extends React.Component {
 
         return(
             <div className="typing-page">
-                <Header />
+                <Header isLoggedIn={false}/>
                 <TypingGameDisplay />
                 <TypingUI />
             </div>
