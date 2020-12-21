@@ -13,7 +13,7 @@ export class TypingArea extends React.Component {
     render() {
         return(
             <div className="typing-area">
-                <input className="typing-area__input"/>
+                <input className="typing-area__input" onChange={this.props.onChange}/>
             </div>
         );
     }
