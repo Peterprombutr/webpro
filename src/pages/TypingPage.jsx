@@ -10,14 +10,9 @@ export class TypingPage extends React.Component {
 
         this.state = {
             dps: 0,
-            enemy_current_hp: 70,
-            enemy_max_hp: 100,
+            enemy_current_hp: 100,
+            enemy_max_hp: 120,
         };
-    }
-
-    componentDidMount() {
-        this.updateDamage(0 );
-        this.intervalID = setInterval(() => this.updateDamage(this.state.dps), 333);
     }
 
     updateDamage(dps_in) {
@@ -34,6 +29,7 @@ export class TypingPage extends React.Component {
             dps: dps_in
         })
         console.log(this.state.dps);
+        this.updateDamage(dps_in)
     }
 
     render() {
