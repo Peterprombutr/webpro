@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 export class GameStart extends React.Component {
@@ -6,7 +7,7 @@ export class GameStart extends React.Component {
         super(props);
 
         this.state = {
-            selected: 0
+            selected: 1
         };
     }
 
@@ -18,12 +19,18 @@ export class GameStart extends React.Component {
     }
 
     render() {
+        var easy_diff = <input type="radio" id="easy" name="difficulty" value="1" />;
+
+        if (this.state.selected === 1) {
+            easy_diff = <input type="radio" id="easy" name="difficulty" value="1" checked={true}/>
+        }
+
         return(
             <div className="dc">
                 <p className="header__difficulty">Select Difficulty</p>
                 <div className="flex">
                     <div className="difficulty" onChange={this.change_difficulty}>
-                        <input type="radio" id="easy" name="difficulty" value="1" />
+                        {easy_diff}
                         <label htmlFor="easy">Easy</label>
                         <input type="radio" id="medium" name="difficulty" value="2" />
                         <label htmlFor="medium">Intermediate</label>
@@ -31,7 +38,9 @@ export class GameStart extends React.Component {
                         <label htmlFor="hard">Advanced</label>
                     </div>
                     <div style={{zIndex: 0}}>
-                        <button className="button game-start" onClick={() => this.props.start(this.state.selected)}>START</button>
+                        <Link to="/typing">
+                            <button className="button game-start" onClick={() => this.props.start(this.state.selected)}>START</button>
+                        </Link>
                     </div>
                 </div>
 
