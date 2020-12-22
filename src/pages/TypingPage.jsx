@@ -12,6 +12,7 @@ export class TypingPage extends React.Component {
             dps: 0,
             enemy_current_hp: 100,
             enemy_max_hp: 120,
+            enemy_list: ["high necromancer", "slime", "minotaur"],
         };
     }
 
@@ -22,13 +23,16 @@ export class TypingPage extends React.Component {
         this.setState({
             enemy_current_hp: enemy_new_hp
         })
+
+        if (enemy_new_hp <= 0) {
+            console.log("dead");
+        }
     }
 
     calculateDPS(dps_in) {
         this.setState({
             dps: dps_in
         })
-        console.log(this.state.dps);
         this.updateDamage(dps_in)
     }
 
