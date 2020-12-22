@@ -25,9 +25,11 @@ export class TypingUI extends React.Component {
 
     componentDidMount() {
         this.buildWordBank();
+        this.intervalID = setInterval(() => this.updateWPM(this.state.num_words_typed, this.state.start_time), 1000);
 
         this.setState({
-            current_word: 0
+            current_word: 0,
+            wpm: 0,
         })
     }
 
@@ -38,15 +40,12 @@ export class TypingUI extends React.Component {
             })
         }
         var w = this.state.word_bank[this.state.current_word]
-        //console.log(this.state.start_time);
 
         if (e.target.value === w + " ") {
-           // console.log("hit");
             var updated_typed_words = this.state.typed_words.concat(w);
             var duration = (currentTime() - this.state.start_time) / 60000.0;
             var raw_wpm = ((this.state.num_words_typed + 1) / duration).toFixed(2);
             e.target.value = "";
-            //console.log(this.state.wpm, this.state.atk, damageMult);
 
             this.setState({
                 current_word: this.state.current_word + 1,
@@ -55,7 +54,29 @@ export class TypingUI extends React.Component {
                 wpm: raw_wpm,
                 dps: ((raw_wpm * this.state.atk * damageMult).toFixed(0)),
             })
-            this.props.calculateDPS(this.state.dps);
+            this.props.calculateDPS(((raw_wpm * this.state.atk * damageMult).toFixed(0)));
+
+
+            // check when the word bank is empty and build a new one
+            if (this.state.num_words_typed + 1 === this.state.word_bank.length) {
+                this.buildWordBank();
+                this.setState({
+                    typed_words: [],
+                    current_word: 0
+                })
+            }
+        }
+    }
+
+    updateWPM(num_words_typed, st) {
+        var duration = (currentTime() - st) / 60000.0;
+
+        if (num_words_typed > 0) {
+            var raw_wpm = (num_words_typed / duration).toFixed(2);
+            this.setState({
+                wpm: raw_wpm,
+                dps: ((raw_wpm * this.state.atk * damageMult).toFixed(0))
+            })
         }
     }
 
