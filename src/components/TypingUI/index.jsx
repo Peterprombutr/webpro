@@ -58,7 +58,7 @@ export class TypingUI extends React.Component {
 
 
             // check when the word bank is empty and build a new one
-            if (this.state.num_words_typed + 1 === this.state.word_bank.length) {
+            if (this.state.typed_words.length + 1 === this.state.word_bank.length) {
                 this.buildWordBank();
                 this.setState({
                     typed_words: [],
