@@ -1,7 +1,5 @@
 import * as React from "react";
 import "./style.css";
-import enemy_img from "../../assets/attack1_1.png";
-import necro from "../../assets/enemy1.svg"
 
 export class Enemy extends React.Component {
     constructor(prop) {
@@ -14,7 +12,6 @@ export class Enemy extends React.Component {
 
     componentDidMount() {
         this.calculateWidth(this.props.current_health, this.props.max_health);
-
         this.intervalID = setInterval(() => this.calculateWidth(this.props.current_health, this.props.max_health), 500);
     }
 
@@ -39,7 +36,7 @@ export class Enemy extends React.Component {
             <div className="enemy">
                 <p className={health_bar} style={{width: this.state.health_width}}>{this.props.name}</p>
                 <p className="enemy__health">{this.props.current_health}/{this.props.max_health}</p>
-                <img className="enemy-img" src={necro} alt="enemy"/>
+                <img className="enemy-img" src={this.props.enemy_image} alt="enemy"/>
             </div>
         );
     }
