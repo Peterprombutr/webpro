@@ -5,7 +5,7 @@ import { WordBank } from "../WordBank";
 import { currentTime } from "../../utils/currentTime";
 import "./style.css";
 
-const damageMult = 0.25;
+const damageMult = 0.5;
 
 export class TypingUI extends React.Component {
     constructor(prop) {
