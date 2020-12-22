@@ -30,7 +30,6 @@ export class TypingPage extends React.Component {
 
         // Cycle new enemy
         if (enemy_new_hp <= 0) {
-            console.log("dead");
             var new_enemy_index = this.state.enemy_index + 1;
             this.setState({
                 enemy_index: new_enemy_index,
