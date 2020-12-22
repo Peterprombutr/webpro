@@ -12,6 +12,8 @@ export class TypingUI extends React.Component {
         super(prop);
 
         this.state = {
+            player_name: "default-user",
+            player_health: 3,
             start_time: false,
             num_words_typed: 0,
             wpm: 0,
@@ -116,7 +118,13 @@ export class TypingUI extends React.Component {
             <div className="typing-ui">
                 <WordBank wb={wb}/>
                 <TypingArea onChange={(e) => this.type(e)}/>
-                <PlayerInfo atk={this.state.atk} wpm={this.state.wpm} dps={this.state.dps}/>
+                <PlayerInfo
+                    player_name={this.state.player_name}
+                    player_health={this.state.player_health}
+                    atk={this.state.atk}
+                    wpm={this.state.wpm}
+                    dps={this.state.dps}
+                    />
             </div>
         );
     }
