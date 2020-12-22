@@ -2,12 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import { LandingPage } from './pages/LandingPage';
-import { TypingPage } from './pages/TypingPage';
+import { Main } from './main';
 
 ReactDOM.render(
   <React.StrictMode>
-    <TypingPage />
+    <Main />
   </React.StrictMode>,
   document.getElementById('root')
 );
