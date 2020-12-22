@@ -13,20 +13,13 @@ export class LandingPage extends React.Component {
     };
 }
 
-    start_game = (val) => {
-        this.setState({
-            difficulty: val
-        });
-        console.log("starting a game session with the difficulty of " + val);
-    }
-
     render() {
         return(
             <div className="landing-page">
                 <Header isLoggedIn={true}/>
                 <div className="partition">
                     <div className="partition__left">
-                        <GameStart start={this.start_game}/>
+                        <GameStart start={this.props.start_game}/>
                     </div>
                     <div className="partition__right">
                         <Leaderboard />
