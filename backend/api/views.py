@@ -1,9 +1,7 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
-#from rest_framework.response import Response
 from django.http import HttpResponse, Http404
 from django.core.exceptions import ObjectDoesNotExist
-
 from .models import WordBank, Monster
 import json
 
