@@ -1,0 +1,29 @@
+.enemy-attack--charging {
+    font-size: 30px;
+    color: black;
+    background-color: red;
+    padding: 0 10px;
+}
+
+.enemy-attack--full {
+    font-size: 30px;
+    color: white;
+    padding: 0 10px;
+    background-color: red;
+}
+
+.enemy-attack--white {
+    background-color: white;
+}
+
+.enemy-attack-wrap--left {
+    position: absolute;
+    top: 25vh;
+    left: 15vw;
+}
+
+.enemy-attack-wrap--right {
+    position: absolute;
+    top: 25vh;
+    left: 75vw;
+}
