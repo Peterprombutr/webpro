@@ -17,13 +17,16 @@ export class TypingPage extends React.Component {
             enemy_hp_list: [120, 140, 160],
             enemy_img_list: [necro, enemy_img, necro],
             enemy_index: 0,
+            // Empty string will remove the display
+            enemy_attack_words: ["supercritical ", "destruction "],
+            attack_active: true,
         };
     }
 
     updateDamage(dps_in) {
-        console.log(dps_in);
         var raw_hp = (this.state.enemy_current_hp - (dps_in/3.003).toFixed(0));
         var enemy_new_hp = raw_hp < 0 ? 0 : raw_hp;
+
         this.setState({
             enemy_current_hp: enemy_new_hp
         })
@@ -42,7 +45,23 @@ export class TypingPage extends React.Component {
         this.setState({
             dps: dps_in
         })
-        this.updateDamage(dps_in)
+        this.updateDamage(dps_in);
+    }
+
+    attack_commence() {
+        this.setState({
+            // Pull attack words from wordbank
+            enemy_attack_words: ["energy ", "takodachi "],
+            attack_active: true,
+        })
+    }
+
+    defend_success() {
+        console.log("defend success");
+        this.setState({
+            enemy_attack_words: [],
+            attack_active: false,
+        })
     }
 
     render() {
@@ -55,8 +74,15 @@ export class TypingPage extends React.Component {
                     current_health={this.state.enemy_current_hp}
                     max_health={this.state.enemy_hp_list[this.state.enemy_index]}
                     enemy_image={this.state.enemy_img_list[this.state.enemy_index]}
+                    attack_words={this.state.enemy_attack_words}
+                    attack_active={this.state.attack_active}
+                    attack_commence={() => this.attack_commence()}
                 />
-                <TypingUI calculateDPS={(dps_in) => this.calculateDPS(dps_in)}/>
+                <TypingUI
+                    calculateDPS={(dps_in) => this.calculateDPS(dps_in)}
+                    attack_words={this.state.enemy_attack_words}
+                    defend_success={() => this.defend_success()}
+                />
             </div>
         );
     }
