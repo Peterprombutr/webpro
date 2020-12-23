@@ -22,7 +22,7 @@ export class GameStart extends React.Component {
         var easy_diff = <input type="radio" id="easy" name="difficulty" value="1" />;
 
         if (this.state.selected === 1) {
-            easy_diff = <input type="radio" id="easy" name="difficulty" value="1" checked={true}/>
+            easy_diff = <input type="radio" id="easy" name="difficulty" value="1" defaultChecked={true}/>
         }
 
         return(
