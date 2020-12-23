@@ -43,6 +43,19 @@ export class TypingUI extends React.Component {
         }
         var w = this.state.word_bank[this.state.current_word]
 
+        if (this.props.attack_words.includes(e.target.value)) {
+            var duration = (currentTime() - this.state.start_time) / 60000.0;
+            var raw_wpm = ((this.state.num_words_typed + 1) / duration).toFixed(2);
+            e.target.value = "";
+
+            this.setState({
+                num_words_typed: this.state.num_words_typed + 1,
+                wpm: raw_wpm,
+                dps: ((raw_wpm * this.state.atk * damageMult).toFixed(0)),
+            })
+            this.props.defend_success();
+        }
+
         if (e.target.value === w + " ") {
             var updated_typed_words = this.state.typed_words.concat(w);
             var duration = (currentTime() - this.state.start_time) / 60000.0;
