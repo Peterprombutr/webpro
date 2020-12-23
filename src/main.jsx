@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BrowserRouter as Router,Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router,Switch, Route } from "react-router-dom";
 import { LandingPage } from "./pages/LandingPage";
 import { TypingPage } from "./pages/TypingPage";
 
