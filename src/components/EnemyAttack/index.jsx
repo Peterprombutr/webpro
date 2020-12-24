@@ -10,12 +10,12 @@ export class EnemyAttack extends React.Component {
         this.state = {
             attack_charge: 0,
             charge_width: 0,
-            speed: 2,
+            top: "10vh",
+            speed: 5,
         }
     }
 
     componentDidMount() {
-        var top_val = Math.floor(5 + Math.random() * 30);
         this.intervalID = setInterval(() => this.incrementCharge(this.state.attack_charge, this.state.speed), 500);
         this.intervalID2 = setInterval(() => this.restartAttack(), attack_restart_timer);
     }
@@ -26,6 +26,12 @@ export class EnemyAttack extends React.Component {
     }
 
     incrementCharge(charge, speed) {
+
+        if (this.state.attack_charge >= 100) {
+            this.props.take_damage();
+            this.deactivate_attack();
+        }
+
         if (this.props.active) {
             var new_charge = charge + speed
 
@@ -42,10 +48,11 @@ export class EnemyAttack extends React.Component {
     }
 
     restartAttack() {
-        if (!this.props.attack_active) {
+        if (!this.props.active || !this.intervalID) {
             this.props.attack_commence();
             this.intervalID = setInterval(() => this.incrementCharge(this.state.attack_charge, this.state.speed), 500);
         }
+
     }
 
     deactivate_attack() {
@@ -59,7 +66,7 @@ export class EnemyAttack extends React.Component {
 
     render() {
         return(
-            <div className={"enemy-attack-wrap--" + this.props.attack_zone}>
+            <div className={"enemy-attack-wrap--" + this.props.attack_zone} style={{top: this.state.top}}>
                 <div className="enemy-attack--white">
                     <p className="enemy-attack--charging" style={{width: this.state.charge_width}}>{this.props.attack_word}</p>
                 </div>
