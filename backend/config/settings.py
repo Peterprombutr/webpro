@@ -37,13 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api',
+    'corsheaders',
     'rest_framework',
+    'api',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -124,5 +126,11 @@ STATIC_URL = '/static/'
 SITE_URL = "http://127.0.0.1:8000"
 
 ALLOWED_HOSTS = [
+    '.localhost',
+    '127.0.0.1',
+    '[::1]',
     'typeit-backend.et.r.appspot.com',
 ]
+
+# Placeholder CORS
+CORS_ALLOW_ALL_ORIGINS = True
