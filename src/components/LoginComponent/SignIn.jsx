@@ -1,26 +1,35 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
-import { signInWithGoogle } from "../../utils/firebase";
-import { auth } from "../../utils/firebase";
+import { Link, Redirect } from "react-router-dom";
+import { auth, getUserDocument } from "../../utils/firebase";
 
 
-const SignIn = () => {
+const SignIn = (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+    const [redirect, setRedirect] = useState(false);
+
+    const redirect_comp = <Redirect to="/" />;
 
     const signInWithEmailAndPasswordHandler = (event,email, password) => {
         event.preventDefault();
-        auth.signInWithEmailAndPassword(email, password).catch(error => {
+        auth.signInWithEmailAndPassword(email, password).then((user) => {
+            //console.log(user.user.uid);
+            getUserDocument(user.user.uid).then((user) => {
+                setRedirect(true);
+                props.login(user.displayName);
+            })
+        })
+        .catch(error => {
         setError("Error signing in with password and email!");
           console.error("Error signing in with password and email", error);
         });
       };
-      
+
       const onChangeHandler = (event) => {
           const {name, value} = event.currentTarget;
-        
+
           if(name === 'userEmail') {
               setEmail(value);
           }
@@ -28,7 +37,13 @@ const SignIn = () => {
             setPassword(value);
           }
       };
-   
+
+    console.log(redirect);
+    if (redirect) {
+        return (
+            redirect_comp
+        )
+    }
 
   return (
     <div className="mt-8">
@@ -64,15 +79,6 @@ const SignIn = () => {
             Sign in
           </button>
         </form>
-        <p className="text-center my-3">or</p>
-        <button
-          className="bg-red-500 hover:bg-red-600 w-full py-2 text-white"
-          onClick={() => {
-            signInWithGoogle();
-          }}
-        >
-          Sign in with Google
-        </button>
         <p className="text-center my-3">
           Don't have an account?{" "}
           <Link to="signup" className="text-blue-500 hover:text-blue-600">
