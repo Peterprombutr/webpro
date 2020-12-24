@@ -12,7 +12,8 @@ export class Main extends React.Component {
         super(props);
 
         this.state = {
-            difficulty: 0
+            difficulty: 0,
+            username: null
         };
     }
 
@@ -23,16 +24,23 @@ export class Main extends React.Component {
         console.log("starting a game session with the difficulty of " + val);
     }
 
+    login = (displayName) => {
+        console.log("logged in: " + displayName);
+        this.setState({
+            username: displayName
+        })
+    }
+
     render() {
 
         return(
             <div>
                 <Router>
                     <Switch>
-                        <Route path="/login" render={(props) => <SignIn />} />
-                        <Route exact path="/signup" render={(props) => <SignUp />} />
+                        <Route path="/login" render={(props) => <SignIn login={(username) => this.login(username)}/>} />
+                        <Route exact path="/signup" render={(props) => <SignUp login={(username) => this.login(username)}/>} />
                         <Route path="/typing" render={(props) => <TypingPage {...props} difficulty={this.state.difficulty} />} />
-                        <Route path="/" render={(props) => <LandingPage {...props} start_game={this.start_game} />} />
+                        <Route path="/" render={(props) => <LandingPage {...props} start_game={this.start_game} username={this.state.username}/>} />
                     </Switch>
                 </ Router>
             </div>
