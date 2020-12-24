@@ -1,23 +1,30 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import { auth, signInWithGoogle, generateUserDocument } from "../../utils/firebase";
+import React, { useState } from "react";
+import { Redirect, Link } from "react-router-dom";
+import { auth, generateUserDocument } from "../../utils/firebase";
 
-const SignUp = () => {
+const SignUp = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [error, setError] = useState(null);
+  const [redirect, setRedirect] = useState(false);
+
+  const redirect_comp = <Redirect to="/" />;
 
   const createUserWithEmailAndPasswordHandler = async (event, email, password) => {
     event.preventDefault();
     try{
       const {user} = await auth.createUserWithEmailAndPassword(email, password);
-      generateUserDocument(user, {displayName});
+      generateUserDocument(user, {displayName}).then(user => {
+          setRedirect(true);
+          props.login(user.displayName);
+      });
     }
     catch(error){
+        console.log(error);
       setError('Error Signing up with email and password');
     }
-      
+
     setEmail("");
     setPassword("");
     setDisplayName("");
@@ -34,6 +41,12 @@ const SignUp = () => {
       setDisplayName(value);
     }
   };
+
+  if (redirect) {
+      return (
+          redirect_comp
+      )
+  }
 
   return (
     <div className="mt-8">
@@ -90,22 +103,9 @@ const SignUp = () => {
             Sign up
           </button>
         </form>
-        <p className="text-center my-3">or</p>
-        <button
-          onClick={() => {
-            try {
-              signInWithGoogle();
-            } catch (error) {
-              console.error("Error signing in with Google", error);
-            }
-          }}
-          className="bg-red-500 hover:bg-red-600 w-full py-2 text-white"
-        >
-          Sign In with Google
-        </button>
         <p className="text-center my-3">
           Already have an account?{" "}
-          <Link to="/" className="text-blue-500 hover:text-blue-600">
+          <Link to="/login" className="text-blue-500 hover:text-blue-600">
             Sign in here
           </Link>{" "}
         </p>
