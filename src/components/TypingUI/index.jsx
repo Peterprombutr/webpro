@@ -3,6 +3,7 @@ import { PlayerInfo } from "../PlayerInfo";
 import { TypingArea } from "../TypingArea";
 import { WordBank } from "../WordBank";
 import { currentTime } from "../../utils/currentTime";
+import { API } from "../../utils/API";
 import "./style.css";
 
 const damageMult = 0.5;
@@ -13,7 +14,6 @@ export class TypingUI extends React.Component {
 
         this.state = {
             player_name: "default-user",
-            player_health: 3,
             start_time: false,
             num_words_typed: 0,
             wpm: 0,
@@ -26,6 +26,7 @@ export class TypingUI extends React.Component {
     }
 
     componentDidMount() {
+        API.getWordBank();
         this.buildWordBank();
         this.intervalID = setInterval(() => this.updateWPM(this.state.num_words_typed, this.state.start_time), 1000);
 
@@ -96,6 +97,7 @@ export class TypingUI extends React.Component {
     }
 
     buildWordBank() {
+
         // To integrate with backend later
         var wordBank = ["conspire", "misuse", "spiteful", "neat", "road", "idiotic", "implant",
             "muscle", "tin", "finger", "needy", "arrest", "chance", "blue-eyed", "tie", "quiver",
@@ -133,7 +135,7 @@ export class TypingUI extends React.Component {
                 <TypingArea onChange={(e) => this.type(e)}/>
                 <PlayerInfo
                     player_name={this.state.player_name}
-                    player_health={this.state.player_health}
+                    player_health={this.props.player_health}
                     atk={this.state.atk}
                     wpm={this.state.wpm}
                     dps={this.state.dps}
