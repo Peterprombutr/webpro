@@ -9,7 +9,7 @@ class WordBank(models.Model):
 
     def json_get(self, rsize):
         wb_list_conv = list( self.wb_list.split(" ")) 
-        return "{\"wb_list\": " + str(random.choices(wb_list_conv, k=rsize)).replace('\'', "\"") + "}"
+        return "{\"wb_list\": " + str(random.sample(wb_list_conv, k=rsize)).replace('\'', "\"") + "}"
     
 class Monster(models.Model):
     m_id = models.PositiveIntegerField(primary_key=True)
