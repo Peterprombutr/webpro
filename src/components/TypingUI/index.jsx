@@ -26,7 +26,6 @@ export class TypingUI extends React.Component {
     }
 
     componentDidMount() {
-        API.getWordBank();
         this.buildWordBank();
         this.intervalID = setInterval(() => this.updateWPM(this.state.num_words_typed, this.state.start_time), 1000);
 
@@ -97,15 +96,11 @@ export class TypingUI extends React.Component {
     }
 
     buildWordBank() {
-
-        // To integrate with backend later
-        var wordBank = ["conspire", "misuse", "spiteful", "neat", "road", "idiotic", "implant",
-            "muscle", "tin", "finger", "needy", "arrest", "chance", "blue-eyed", "tie", "quiver",
-            "love", "trip", "form", "rookie", "crossword", "axe", "hamlet", "prototype", "factory"];
-
-        this.setState({
-            word_bank: wordBank
-        })
+        API.getWordBank(30).then(response => {
+            this.setState({
+                word_bank: response.wb_list
+            })
+        });
     }
 
     displayWordBank() {
