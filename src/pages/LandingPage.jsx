@@ -16,7 +16,7 @@ export class LandingPage extends React.Component {
     render() {
         return(
             <div className="landing-page">
-                <Header isLoggedIn={true}/>
+                <Header username={this.props.username}/>
                 <div className="partition">
                     <div className="partition__left">
                         <GameStart start={this.props.start_game}/>
