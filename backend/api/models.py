@@ -32,11 +32,11 @@ class Monster(models.Model):
 # wb_c500.save()
 
 ## Monster
-# 0 GOOBBUE: 180
 # 1 GOLEM: 300
 # 2 DARK MAGE: 800
 # 3 PALADIN: 400
 # 4 NECROMANCER: 500
 # 5 SLIME: 50
 # 6 HERETIC PRIEST: 200
-# 7 VIKING: 150
+# 7 VIKING SKIRMISHER: 150
+# 8 GOOBBUE: 180
