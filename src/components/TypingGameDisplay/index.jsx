@@ -21,12 +21,14 @@ export class TypingGameDisplay extends React.Component {
                     attack_word={this.props.attack_words[0]}
                     active={this.props.attack_active}
                     attack_commence={this.props.attack_commence}
+                    take_damage={() => this.props.take_damage()}
                     />
                 <EnemyAttack
                     attack_zone="right"
                     attack_word={this.props.attack_words[1]}
                     active={this.props.attack_active}
                     attack_commence={this.props.attack_commence}
+                    take_damage={() => this.props.take_damage()}
                     />
                 <img className="background-img" src={Background} alt="background"/>
                 <Enemy
