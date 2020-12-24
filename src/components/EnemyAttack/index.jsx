@@ -10,7 +10,7 @@ export class EnemyAttack extends React.Component {
         this.state = {
             attack_charge: 0,
             charge_width: 0,
-            top: "10vh",
+            top: "25vh",
             speed: 5,
         }
     }
@@ -51,6 +51,10 @@ export class EnemyAttack extends React.Component {
         if (!this.props.active || !this.intervalID) {
             this.props.attack_commence();
             this.intervalID = setInterval(() => this.incrementCharge(this.state.attack_charge, this.state.speed), 500);
+            var new_top = Math.floor(8 + Math.random() * 40) + "vh";
+            this.setState({
+                top: new_top
+            })
         }
 
     }
