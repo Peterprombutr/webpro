@@ -11,6 +11,7 @@ export class TypingPage extends React.Component {
         super(props);
 
         this.state = {
+            player_health: 3,
             dps: 0,
             enemy_current_hp: 120,
             enemy_list: ["High necromancer", "Slime", "Minotaur"],
@@ -61,7 +62,17 @@ export class TypingPage extends React.Component {
         this.setState({
             enemy_attack_words: [],
             attack_active: false,
-        })
+        });
+    }
+
+    take_damage() {
+        console.log("take damage!");
+        var new_health = this.state.player_health - 0.5;
+        this.setState({
+            player_health: new_health,
+            enemy_attack_words: [],
+            attack_active: false,
+        });
     }
 
     render() {
@@ -77,8 +88,10 @@ export class TypingPage extends React.Component {
                     attack_words={this.state.enemy_attack_words}
                     attack_active={this.state.attack_active}
                     attack_commence={() => this.attack_commence()}
+                    take_damage={() => this.take_damage()}
                 />
                 <TypingUI
+                    player_health={this.state.player_health}
                     calculateDPS={(dps_in) => this.calculateDPS(dps_in)}
                     attack_words={this.state.enemy_attack_words}
                     defend_success={() => this.defend_success()}
