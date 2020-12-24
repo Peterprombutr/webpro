@@ -1,4 +1,5 @@
-import * as React from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 export class Header extends React.Component {
@@ -6,20 +7,34 @@ export class Header extends React.Component {
         super(props);
 
         this.state = {
-            a: 0
+            user: null
         };
     }
+
+    componentDidMount = () => {
+        this.setState({
+            user: this.props.username
+        })
+    };
 
 
     render() {
         let topbar;
-        if (this.props.isLoggedIn) {
-            topbar = <><p className="header__user-info">Logged in as User1293875 </p>
-            <button className="button header">Logout</button></>
+        if (this.props.username) {
+            topbar = <>
+                <p className="header__user-info">Logged in as {this.props.username}</p>
+                <button className="button header">Logout</button>
+            </>
         }
         else {
-            topbar = <><button className="button header">Login</button>
-            <button className="button header">Sign Up</button></>
+            topbar = <>
+                <Link to="/login" style={{ textDecoration: 'none' }}>
+                    <button className="button header">Login</button>
+                </Link >
+                <Link to="/signup" style={{ textDecoration: 'none' }}>
+                <button className="button header">Sign Up</button>
+                </Link >
+            </>
         }
         return(
             <div className="header">
