@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from django.http import HttpResponse, Http404
 from django.core.exceptions import ObjectDoesNotExist
-from .models import WordBank, Monster
+from .models import WordBank, Monster, HighScore
 import json
 
 # Create your views here.
@@ -29,6 +29,7 @@ def MonsterRequest(request, m_id=None):
     if request.method == 'GET':
         try:
             m_id = int( request.GET.get('m_id') )
+            p_string
             if m_id:
                 mons = Monster.objects.get(m_id=m_id)
                 mons_n = mons.json_get()
@@ -37,3 +38,23 @@ def MonsterRequest(request, m_id=None):
 
         except ObjectDoesNotExist:
             raise Http404("No WordBank matches the given query.")
+            
+# http://servername:port/ api/highscore/?p_difficulty=INTERMEDIATE
+@api_view(['GET', 'POST'])
+def HighScoreRequest(request, p_difficulty=None):
+    if request.method == 'GET':
+        try:
+            res = "[ "
+            p_difficulty = request.GET.get('p_difficulty')
+            if p_difficulty:
+                h_list = HighScore.objects.filter(p_difficulty=p_difficulty)
+                h_list_sorted = HighScore.objects.order_by('-p_difficulty', '-p_wpm')[:3]
+                for pers in h_list_sorted:
+                    res+= json.dumps( json.loads( pers.json_get() ) )
+                    if pers != h_list_sorted[2]:
+                        res+=", "
+            res+=" ]"
+            return HttpResponse( json.dumps( json.loads(res) ), content_type="application/json")
+
+        except ObjectDoesNotExist:
+            raise Http404("No HighScore Level matches the given query.")

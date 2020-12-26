@@ -20,6 +20,15 @@ class Monster(models.Model):
     def json_get(self):
         return "{\"m_name\": \""+ str(self.m_name) +"\", \"m_health\": " + str(self.m_health) + ", \"m_image\": \"" + str(self.m_image) + "\"} "
 
+class HighScore(models.Model):
+    p_name = models.CharField(max_length=20)
+    p_difficulty = models.CharField(max_length=20)
+    p_wpm = models.PositiveIntegerField()
+    p_floor = models.PositiveIntegerField()
+    
+    def json_get(self):
+        return "{\"p_name\": \""+ str(self.p_name) +"\", \"p_difficulty\": \"" + str(self.p_difficulty) + "\", \"p_wpm\": " + str(self.p_wpm) + ", \"p_floor\": " + str(self.p_floor) +"} "
+
 ### Fixtures ###
 ## WordBank
 # wb_t = WordBank( wb_name='tutorial', wb_list='conspire misuse spiteful neat road idiotic implant muscle tin finger needy arrest chance blue-eyed tie quiver love trip form rookie crossword axe hamlet prototype factory' )
