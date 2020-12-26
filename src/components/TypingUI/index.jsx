@@ -13,7 +13,6 @@ export class TypingUI extends React.Component {
         super(prop);
 
         this.state = {
-            player_name: "default-user",
             start_time: false,
             num_words_typed: 0,
             wpm: 0,
@@ -70,6 +69,7 @@ export class TypingUI extends React.Component {
                 dps: ((raw_wpm * this.state.atk * damageMult).toFixed(0)),
             })
             this.props.calculateDPS(((raw_wpm * this.state.atk * damageMult).toFixed(0)));
+            this.props.setWPM(raw_wpm);
 
 
             // check when the word bank is empty and build a new one
@@ -92,6 +92,7 @@ export class TypingUI extends React.Component {
                 wpm: raw_wpm,
                 dps: ((raw_wpm * this.state.atk * damageMult).toFixed(0))
             })
+            this.props.setWPM(raw_wpm);
         }
     }
 
@@ -129,7 +130,7 @@ export class TypingUI extends React.Component {
                 <WordBank wb={wb}/>
                 <TypingArea onChange={(e) => this.type(e)}/>
                 <PlayerInfo
-                    player_name={this.state.player_name}
+                    player_name={this.props.username}
                     player_health={this.props.player_health}
                     atk={this.state.atk}
                     wpm={this.state.wpm}
