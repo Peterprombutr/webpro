@@ -4,6 +4,7 @@ import { TypingGameDisplay } from "../components/TypingGameDisplay";
 import { TypingUI } from "../components/TypingUI";
 import { API } from "../utils/API";
 import "../styles/TypingPage.css";
+import { Redirect } from "react-router-dom";
 
 export class TypingPage extends React.Component {
     constructor(props) {
@@ -13,12 +14,14 @@ export class TypingPage extends React.Component {
             player_health: 3,
             floor: 1,
             dps: 0,
+            wpm: 0,
             enemy_current_hp: 0,
             enemy_name: 0,
             enemy_hp: 0,
             enemy_img: "",
             enemy_attack_words: [],
             attack_active: false,
+            redirect: false
         };
     }
 
@@ -28,9 +31,13 @@ export class TypingPage extends React.Component {
         this.buildMonster(random_monster);
     }
 
+    componentWillUnmount() {
+        API.signal.cancel("canceling API calls");
+    }
+
     buildMonster(id) {
         API.getMonster(id).then(response => {
-            let scaled_enemy_hp = (response.m_health * (1 + this.state.floor / 20) * this.props.difficulty).toFixed(0)
+            let scaled_enemy_hp = (response.m_health * (1 + this.state.floor / 20) * this.props.difficulty).toFixed(0);
             this.setState({
                 enemy_name: response.m_name,
                 enemy_hp: scaled_enemy_hp,
@@ -65,6 +72,12 @@ export class TypingPage extends React.Component {
         this.updateDamage(dps_in);
     }
 
+    setWPM(wpm_in) {
+        this.setState({
+            wpm: wpm_in
+        })
+    }
+
     attack_commence() {
         API.getWordBank(2).then(response => {
             var new_attack_words = response.wb_list;
@@ -91,13 +104,21 @@ export class TypingPage extends React.Component {
             enemy_attack_words: [],
             attack_active: false,
         });
+        if (new_health <= 0) {
+            this.setState({
+                redirect: true
+            })
+        }
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={{pathname: "/end", state: {wpm_end: this.state.wpm, floor_reached: this.state.floor}}} />
+        }
 
         return(
             <div className="typing-page">
-                <Header username={this.props.username}/>
+                <Header username={this.props.username} logout={this.props.logout}/>
                 <TypingGameDisplay
                     difficulty={this.props.difficulty}
                     floor={this.state.floor}
@@ -111,8 +132,10 @@ export class TypingPage extends React.Component {
                     take_damage={() => this.take_damage()}
                 />
                 <TypingUI
+                    username={this.props.username}
                     player_health={this.state.player_health}
                     calculateDPS={(dps_in) => this.calculateDPS(dps_in)}
+                    setWPM={(wpm_in) => this.setWPM(wpm_in)}
                     attack_words={this.state.enemy_attack_words}
                     defend_success={() => this.defend_success()}
                 />
