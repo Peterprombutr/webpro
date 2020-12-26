@@ -6,6 +6,10 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
 export class API {
     static signal = axios.CancelToken.source();
 
+    static cancelCalls() {
+        this.signal.cancel("Canceling API calls");
+    }
+
     static async getWordBank(n) {
         var promise = axios.get("/api/wordbank", { params: { wb_name:"common200", num:n, cancelToken: this.signal.token}});
         var dataPromise = promise.then(response => response.data)
