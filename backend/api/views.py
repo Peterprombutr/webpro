@@ -63,14 +63,17 @@ def HighScoreRequest(request, p_difficulty=None, num=3):
             raise Http404("No HighScore Level matches the given query.")
 
 
-# http://servername:port/ api/highscore/
+# http://servername:port/ api/add/highscore/
 @api_view(['PUT'])
-def HighScorePost(request):
+def HighScorePost(request, pk):
+    try: 
+        highscore = HighScore.objects.get(pk=pk) 
+    except HighScore.DoesNotExist: 
+        Http404("Contact Panpakorn should this happens")
     if request.method == 'PUT':
-        data = {'text': request.DATA.get('the_post')}
-        serializer = HighScoreSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+        highscore_data = JSONParser().parse(request)
+        highscore_serializer = HighScoreSerializer(highscore, data=highscore_data)
+        if highscore_serializer.is_valid(): 
+            highscore_serializer.save()
+            return Response(highscore_serializer.data, status=status.HTTP_201_CREATED)
+        return Response(highscore_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
