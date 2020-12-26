@@ -3,6 +3,7 @@ from rest_framework.decorators import api_view
 from django.http import HttpResponse, Http404
 from django.core.exceptions import ObjectDoesNotExist
 from .models import WordBank, Monster, HighScore
+from .serializers import HighScoreSerializer
 import json
 
 # Create your views here.
@@ -23,6 +24,7 @@ def WordBankRequest(request, wb_name=None, num=None):
         except ObjectDoesNotExist:
             raise Http404("No WordBank matches the given query.")
 
+
 # http://servername:port/ api/monster/?m_id=1
 @api_view(['GET'])
 def MonsterRequest(request, m_id=None):
@@ -37,9 +39,10 @@ def MonsterRequest(request, m_id=None):
 
         except ObjectDoesNotExist:
             raise Http404("No WordBank matches the given query.")
-            
+
+  
 # http://servername:port/ api/highscore/?p_difficulty=INTERMEDIATE&num=3
-@api_view(['GET', 'POST'])
+@api_view(['GET'])
 def HighScoreRequest(request, p_difficulty=None, num=3):
     if request.method == 'GET':
         try:
@@ -58,3 +61,16 @@ def HighScoreRequest(request, p_difficulty=None, num=3):
 
         except ObjectDoesNotExist:
             raise Http404("No HighScore Level matches the given query.")
+
+
+# http://servername:port/ api/highscore/
+@api_view(['PUT'])
+def HighScorePost(request):
+    if request.method == 'PUT':
+        data = {'text': request.DATA.get('the_post')}
+        serializer = HighScoreSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    

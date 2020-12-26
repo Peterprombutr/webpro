@@ -11,6 +11,9 @@ class WordBank(models.Model):
         wb_list_conv = list( self.wb_list.split(" ")) 
         return "{\"wb_list\": " + str(random.sample(wb_list_conv, k=rsize)).replace('\'', "\"") + "}"
     
+    def __unicode__(self):
+        return str(self.wb_list)
+    
 class Monster(models.Model):
     m_id = models.PositiveIntegerField(primary_key=True)
     m_name = models.CharField(max_length=50, unique=True)
@@ -20,6 +23,10 @@ class Monster(models.Model):
     def json_get(self):
         return "{\"m_name\": \""+ str(self.m_name) +"\", \"m_health\": " + str(self.m_health) + ", \"m_image\": \"" + str(self.m_image) + "\"} "
 
+    def __unicode__(self):
+        return str(self.m_name)
+
+
 class HighScore(models.Model):
     p_name = models.CharField(max_length=20)
     p_difficulty = models.CharField(max_length=20)
@@ -28,6 +35,9 @@ class HighScore(models.Model):
     
     def json_get(self):
         return "{\"p_name\": \""+ str(self.p_name) +"\", \"p_difficulty\": \"" + str(self.p_difficulty) + "\", \"p_wpm\": " + str(self.p_wpm) + ", \"p_floor\": " + str(self.p_floor) +"} "
+
+    def __unicode__(self):
+        return str(self.p_name)+"_" +str(self.p_floor)+"_" +str(self.p_wpm)
 
 ### Fixtures ###
 ## WordBank
