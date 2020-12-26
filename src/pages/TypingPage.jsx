@@ -96,7 +96,7 @@ export class TypingPage extends React.Component {
 
         return(
             <div className="typing-page">
-                <Header isLoggedIn={false}/>
+                <Header username={this.props.username}/>
                 <TypingGameDisplay
                     enemy_name={this.state.enemy_name}
                     current_health={this.state.enemy_current_hp}
