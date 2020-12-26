@@ -23,7 +23,9 @@ export class Header extends React.Component {
         if (this.props.username) {
             topbar = <>
                 <p className="header__user-info">Logged in as {this.props.username}</p>
-                <button className="button header">Logout</button>
+                <Link to="/" style={{ textDecoration: 'none' }}>
+                    <button className="button header" onClick={this.props.logout}>Logout</button>
+                </Link >
             </>
         }
         else {
