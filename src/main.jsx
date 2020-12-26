@@ -39,7 +39,7 @@ export class Main extends React.Component {
                     <Switch>
                         <Route path="/login" render={(props) => <SignIn login={(username) => this.login(username)}/>} />
                         <Route exact path="/signup" render={(props) => <SignUp login={(username) => this.login(username)}/>} />
-                        <Route path="/typing" render={(props) => <TypingPage {...props} difficulty={this.state.difficulty} />} />
+                        <Route path="/typing" render={(props) => <TypingPage {...props} difficulty={this.state.difficulty} username={this.state.username}/>} />
                         <Route path="/" render={(props) => <LandingPage {...props} start_game={this.start_game} username={this.state.username}/>} />
                     </Switch>
                 </ Router>
