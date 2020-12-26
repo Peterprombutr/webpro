@@ -22,6 +22,8 @@ export class TypingGameDisplay extends React.Component {
                     active={this.props.attack_active}
                     attack_commence={this.props.attack_commence}
                     take_damage={() => this.props.take_damage()}
+                    difficulty={this.props.difficulty}
+                    floor={this.props.floor}
                     />
                 <EnemyAttack
                     attack_zone="right"
@@ -29,6 +31,8 @@ export class TypingGameDisplay extends React.Component {
                     active={this.props.attack_active}
                     attack_commence={this.props.attack_commence}
                     take_damage={() => this.props.take_damage()}
+                    difficulty={this.props.difficulty}
+                    floor={this.props.floor}
                     />
                 <img className="background-img" src={Background} alt="background"/>
                 <Enemy

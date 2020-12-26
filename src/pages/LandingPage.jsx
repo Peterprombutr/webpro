@@ -8,9 +8,6 @@ export class LandingPage extends React.Component {
     constructor(props) {
     super(props);
 
-    this.state = {
-        difficulty: 0
-    };
 }
 
     render() {

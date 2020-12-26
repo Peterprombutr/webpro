@@ -11,6 +11,7 @@ export class TypingPage extends React.Component {
 
         this.state = {
             player_health: 3,
+            floor: 1,
             dps: 0,
             enemy_current_hp: 0,
             enemy_name: 0,
@@ -29,11 +30,11 @@ export class TypingPage extends React.Component {
 
     buildMonster(id) {
         API.getMonster(id).then(response => {
-            console.log(response);
+            let scaled_enemy_hp = (response.m_health * (1 + this.state.floor / 20) * this.props.difficulty).toFixed(0)
             this.setState({
                 enemy_name: response.m_name,
-                enemy_hp: response.m_health,
-                enemy_current_hp: response.m_health,
+                enemy_hp: scaled_enemy_hp,
+                enemy_current_hp: scaled_enemy_hp,
                 enemy_img: response.m_image
             })
         })
@@ -52,6 +53,7 @@ export class TypingPage extends React.Component {
             var new_enemy_index = this.state.enemy_index + 1;
             this.setState({
                 enemy_index: new_enemy_index,
+                floor: this.state.floor + 1
             })
             this.buildMonster(new_enemy_index);
         }
@@ -98,6 +100,8 @@ export class TypingPage extends React.Component {
             <div className="typing-page">
                 <Header username={this.props.username}/>
                 <TypingGameDisplay
+                    difficulty={this.props.difficulty}
+                    floor={this.state.floor}
                     enemy_name={this.state.enemy_name}
                     current_health={this.state.enemy_current_hp}
                     max_health={this.state.enemy_hp}
