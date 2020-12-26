@@ -7,7 +7,7 @@ export class GameStart extends React.Component {
         super(props);
 
         this.state = {
-            selected: 1
+            selected: 0.5
         };
     }
 
@@ -19,10 +19,10 @@ export class GameStart extends React.Component {
     }
 
     render() {
-        var easy_diff = <input type="radio" id="easy" name="difficulty" value="1" />;
+        var easy_diff = <input type="radio" id="easy" name="difficulty" value={0.5} />;
 
-        if (this.state.selected === 1) {
-            easy_diff = <input type="radio" id="easy" name="difficulty" value="1" defaultChecked={true}/>
+        if (this.state.selected === 0.5) {
+            easy_diff = <input type="radio" id="easy" name="difficulty" value={0.5} defaultChecked={true}/>
         }
 
         return(
@@ -32,9 +32,9 @@ export class GameStart extends React.Component {
                     <div className="difficulty" onChange={this.change_difficulty}>
                         {easy_diff}
                         <label htmlFor="easy">Easy</label>
-                        <input type="radio" id="medium" name="difficulty" value="2" />
+                        <input type="radio" id="medium" name="difficulty" value={1} />
                         <label htmlFor="medium">Intermediate</label>
-                        <input type="radio" id="hard" name="difficulty" value="3" />
+                        <input type="radio" id="hard" name="difficulty" value={1.5} />
                         <label htmlFor="hard">Advanced</label>
                     </div>
                     <div style={{zIndex: 0}}>
