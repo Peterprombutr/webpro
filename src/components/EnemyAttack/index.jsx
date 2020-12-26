@@ -31,7 +31,6 @@ export class EnemyAttack extends React.Component {
     }
 
     incrementCharge(charge, speed) {
-        console.log(speed);
         if (this.state.attack_charge >= 100) {
             this.props.take_damage();
             this.deactivate_attack();
