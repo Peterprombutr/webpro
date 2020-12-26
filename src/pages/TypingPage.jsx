@@ -17,15 +17,15 @@ export class TypingPage extends React.Component {
             enemy_name: 0,
             enemy_hp: 0,
             enemy_img: "",
-            enemy_index: 1,
             enemy_attack_words: [],
             attack_active: false,
         };
     }
 
     componentDidMount() {
+        let random_monster = Math.floor(1 + Math.random() * 13);
         this.attack_commence();
-        this.buildMonster(1);
+        this.buildMonster(random_monster);
     }
 
     buildMonster(id) {
@@ -50,12 +50,11 @@ export class TypingPage extends React.Component {
 
         // Cycle new enemy
         if (enemy_new_hp <= 0) {
-            var new_enemy_index = this.state.enemy_index + 1;
+            let random_monster = Math.floor(1 + Math.random() * 13);
             this.setState({
-                enemy_index: new_enemy_index,
                 floor: this.state.floor + 1
             })
-            this.buildMonster(new_enemy_index);
+            this.buildMonster(random_monster);
         }
     }
 
