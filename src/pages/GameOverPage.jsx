@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { Header } from '../components/Header';
 import "../styles/GameOverPage.css";
 
@@ -17,6 +18,9 @@ export class GameOverPage extends React.Component {
                     <p>WPM: {this.props.location.state.wpm_end}</p>
                     <p>Floor reached: {this.props.location.state.floor_reached}</p>
                 </div>
+                <Link to="/">
+                    <button className="game-over__button">Back to main menu</button>
+                </Link>
             </div>
         );
     }
