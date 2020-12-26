@@ -32,7 +32,7 @@ export class TypingPage extends React.Component {
     }
 
     componentWillUnmount() {
-        API.signal.cancel("canceling API calls");
+        API.cancelCalls();
     }
 
     buildMonster(id) {
