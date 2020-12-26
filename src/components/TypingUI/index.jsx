@@ -34,6 +34,11 @@ export class TypingUI extends React.Component {
         })
     }
 
+    componentWillUnmount() {
+        clearInterval(this.intervalID);
+        API.cancelCalls();
+    }
+
     type(e) {
         if (!this.state.start_time) {
             this.setState({
