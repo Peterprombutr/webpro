@@ -50,4 +50,5 @@
     object-position: 0 0;
     width: 27vw;
     height: 50.2vh;
+    transform: scaleX(-1);
 }
