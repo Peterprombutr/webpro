@@ -29,7 +29,6 @@ def MonsterRequest(request, m_id=None):
     if request.method == 'GET':
         try:
             m_id = int( request.GET.get('m_id') )
-            p_string
             if m_id:
                 mons = Monster.objects.get(m_id=m_id)
                 mons_n = mons.json_get()
@@ -39,19 +38,20 @@ def MonsterRequest(request, m_id=None):
         except ObjectDoesNotExist:
             raise Http404("No WordBank matches the given query.")
             
-# http://servername:port/ api/highscore/?p_difficulty=INTERMEDIATE
+# http://servername:port/ api/highscore/?p_difficulty=INTERMEDIATE&num=3
 @api_view(['GET', 'POST'])
-def HighScoreRequest(request, p_difficulty=None):
+def HighScoreRequest(request, p_difficulty=None, num=3):
     if request.method == 'GET':
         try:
             res = "[ "
             p_difficulty = request.GET.get('p_difficulty')
+            word_no = int(request.GET.get('num'))
             if p_difficulty:
                 h_list = HighScore.objects.filter(p_difficulty=p_difficulty)
-                h_list_sorted = HighScore.objects.order_by('-p_difficulty', '-p_wpm')[:3]
+                h_list_sorted = HighScore.objects.order_by('-p_difficulty', '-p_wpm')[:word_no]
                 for pers in h_list_sorted:
                     res+= json.dumps( json.loads( pers.json_get() ) )
-                    if pers != h_list_sorted[2]:
+                    if pers!=h_list_sorted[min(word_no,len(h_list_sorted))-1]:
                         res+=", "
             res+=" ]"
             return HttpResponse( json.dumps( json.loads(res) ), content_type="application/json")
