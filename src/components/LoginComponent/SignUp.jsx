@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { auth, generateUserDocument } from "../../utils/firebase";
+import "../../styles/signUp.css";
 
 const SignUp = (props) => {
   const [email, setEmail] = useState("");
@@ -49,45 +50,40 @@ const SignUp = (props) => {
   }
 
   return (
-    <div className="mt-8">
-      <h1 className="text-3xl mb-2 text-center font-bold">Sign Up</h1>
-      <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
-        {error !== null && (
-          <div className="py-4 bg-red-600 w-full text-white text-center mb-3">
-            {error}
-          </div>
-        )}
-        <form className="">
-          <label htmlFor="displayName" className="block">
+    <div className="signup-page">
+      <h1 className="login-page__heading">TypeIt.io</h1>
+      <div className="login-page__content">
+        <form className="form">
+          <label htmlFor="displayName" className="form__label">
             Display Name:
           </label>
           <input
             type="text"
-            className="my-1 p-1 w-full "
+            className="form__input"
             name="displayName"
             value={displayName}
             placeholder="E.g: Faruq"
             id="displayName"
             onChange={event => onChangeHandler(event)}
           />
-          <label htmlFor="userEmail" className="block">
+          <label htmlFor="userEmail" className="form__label">
             Email:
           </label>
           <input
             type="email"
-            className="my-1 p-1 w-full"
+            className="form__input"
             name="userEmail"
             value={email}
             placeholder="E.g: faruq123@gmail.com"
             id="userEmail"
             onChange={event => onChangeHandler(event)}
           />
-          <label htmlFor="userPassword" className="block">
+          <label htmlFor="userPassword" className="form__label">
             Password:
           </label>
           <input
             type="password"
-            className="mt-1 mb-3 p-1 w-full"
+            className="form__input"
             name="userPassword"
             value={password}
             placeholder="Your Password"
@@ -95,7 +91,7 @@ const SignUp = (props) => {
             onChange={event => onChangeHandler(event)}
           />
           <button
-            className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
+            className="form__button"
             onClick={event => {
               createUserWithEmailAndPasswordHandler(event, email, password);
             }}
@@ -103,7 +99,7 @@ const SignUp = (props) => {
             Sign up
           </button>
         </form>
-        <p className="text-center my-3">
+        <p className="form__redirect">
           Already have an account?{" "}
           <Link to="/login" className="text-blue-500 hover:text-blue-600">
             Sign in here
