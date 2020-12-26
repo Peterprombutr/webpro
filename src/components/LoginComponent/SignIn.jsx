@@ -16,7 +16,6 @@ const SignIn = (props) => {
     const signInWithEmailAndPasswordHandler = (event,email, password) => {
         event.preventDefault();
         auth.signInWithEmailAndPassword(email, password).then((user) => {
-            //console.log(user.user.uid);
             getUserDocument(user.user.uid).then((user) => {
                 setRedirect(true);
                 props.login(user.displayName);
@@ -39,7 +38,6 @@ const SignIn = (props) => {
           }
       };
 
-    console.log(redirect);
     if (redirect) {
         return (
             redirect_comp
