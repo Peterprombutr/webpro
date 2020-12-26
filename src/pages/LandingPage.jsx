@@ -13,7 +13,7 @@ export class LandingPage extends React.Component {
     render() {
         return(
             <div className="landing-page">
-                <Header username={this.props.username}/>
+                <Header username={this.props.username} logout={this.props.logout}/>
                 <div className="partition">
                     <div className="partition__left">
                         <GameStart start={this.props.start_game}/>
