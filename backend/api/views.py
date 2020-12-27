@@ -51,7 +51,7 @@ def HighScoreRequest(request, p_difficulty=None, num=3):
             word_no = int(request.GET.get('num'))
             if p_difficulty:
                 h_list = HighScore.objects.filter(p_difficulty=p_difficulty)
-                h_list_sorted = h_list.order_by('-p_difficulty', '-p_wpm')[:word_no]
+                h_list_sorted = h_list.order_by('-p_floor','-p_wpm')[:word_no]
                 for pers in h_list_sorted:
                     res+= json.dumps( json.loads( pers.json_get() ) )
                     if pers!=h_list_sorted[min(word_no,len(h_list_sorted))-1]:
